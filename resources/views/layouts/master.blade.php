@@ -19,12 +19,11 @@
         </div>
     </div>
 </nav>
-<div class="container">
+<div class="container" id="app">
     @yield('content')
 </div>
 
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 @yield('scripts')
 
 </body>

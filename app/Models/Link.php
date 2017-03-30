@@ -14,6 +14,20 @@ class Link extends Model
     protected $table = 'links';
 
     /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'hash';
+
+    /**
+     * The "type" of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    protected $keyType = 'str';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -30,4 +44,21 @@ class Link extends Model
     protected $hidden = [
         'password'
     ];
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * Check if link is encrypted.
+     *
+     * @return bool
+     */
+    public function isEncrypted()
+    {
+        return ! is_null($this->getAttribute('password'));
+    }
 }
