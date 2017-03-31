@@ -15,7 +15,7 @@ class CreateLinksTable extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->text('url');
-            $table->string('hash', 5);
+            $table->string('hash', 5)->index()->unique();
             $table->string('password')->nullable();
         });
     }

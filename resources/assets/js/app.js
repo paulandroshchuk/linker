@@ -13,6 +13,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.component('modal', require('./components/Modal.vue'));
 Vue.component('create-link', require('./components/CreateLink.vue'));
 
 const app = new Vue({

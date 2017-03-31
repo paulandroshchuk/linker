@@ -29,7 +29,8 @@ class CreateLinkJob
     {
         $link = null;
 
-        if (($link = Link::where(['url' => array_get($this->data, 'url')])->first()) != null) {
+        if (is_null(array_get($this->data,'password'))
+            && ($link = Link::where(['url' => array_get($this->data, 'url')])->first()) != null) {
             return $link;
         }
 
@@ -54,7 +55,7 @@ class CreateLinkJob
         array_set($this->data, 'hash', $hash);
 
         if (array_has($this->data, 'password')) {
-            array_set($this->data, 'password', bcrypt('password'));
+            array_set($this->data, 'password', bcrypt(array_get($this->data, 'password')));
             array_set($this->data, 'url', encrypt(array_get($this->data, 'url')));
         }
 
